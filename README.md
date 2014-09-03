@@ -26,3 +26,18 @@ Usage: vhost-manager -vh [-a ACTION ] [-e EMAIL] [-w DOMAIN_NAME] [-n VHOST_NAME
 	-v			verbose
 	-h			this help		
 ```
+## How to install
+
+Simply clone this repo
+
+```bash
+git clone https://github.com/unnikked/Apache-VirtualHost-Manager.git
+```
+
+and then add execution permission to the script
+
+```bash
+chmod +x Apache-VirtualHost-Manager/vhost-manager.sh
+```
+
+I suggest you to add this script either on your bash path envirornment or on your `/usr/bin` folder
