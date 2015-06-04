@@ -3,8 +3,8 @@
 # A VirtualHost manager for Apache 2.4.7, tested on Ubuntu 14.04 LTS
 
 # by unnikked
-#	- http://unnikked.tk (italian website)
-#	- http://en.unnikked.tk (english website)
+#	- https://unnikked.tk (italian website)
+#	- https://unnikked.ga (english website)
 
 if [ "$(id -u)" != 0 ]; then
 	echo "You must be root or use sudo"
