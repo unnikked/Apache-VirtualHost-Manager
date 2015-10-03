@@ -188,6 +188,15 @@ if [ $action == "create" ]; then
 		exit 1
 	fi
 	
+	# add domain to /etc/hosts
+	if ! echo "127.0.0.1       $domainname" >> /etc/hosts
+	then
+		echo "ERROR: Not able write in /etc/hosts"
+		exit 1;
+	else
+		verbose "Host added to /etc/hosts file"
+	fi
+
 	# reloads apache config
 	if service apache2 reload > /dev/null; then 
 		verbose "Apache config reloaded"
@@ -195,7 +204,9 @@ if [ $action == "create" ]; then
 		echo "An error occurred while reloading apache"
 		exit 1
 	fi
+
 	exit 0
+
 fi
 
 if [ "$action" == "delete" ]; then
@@ -235,6 +246,10 @@ if [ "$action" == "delete" ]; then
 		echo "An error occurred while deleting directory "$dirname""
 		exit 1
 	fi
+
+	# deletes domain in /etc/hosts
+	newhost=${domainname//./\\.}
+	sed -i "/$newhost/d" /etc/hosts
 	
 	# reloads apache config
 	if service apache2 reload > /dev/null; then 
